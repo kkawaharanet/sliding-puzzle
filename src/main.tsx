@@ -1,7 +1,8 @@
 import { createContext, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
-import { Game, IGame } from "./game.ts";
+import { Game } from "./game.ts";
+import { IGame } from "./i-game.ts";
 import "./main.css";
 
 const game = new Game();

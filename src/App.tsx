@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "./App.module.css";
-import { IGameFieldChangeCallback } from "./game";
+import { IGameFieldCallback } from "./i-game";
 import { GameContext } from "./main";
 
 function App() {
@@ -9,14 +9,14 @@ function App() {
   const [isCleared, setIsCleared] = useState(false);
 
   useEffect(() => {
-    const callback: IGameFieldChangeCallback = (field) => {
+    const callback: IGameFieldCallback = (field) => {
       // インスタンスが同じだと更新されないため、別インスタンスにする
       setField([...field]);
       setIsCleared(game.isCleared);
     };
-    game.listen(callback);
+    game.listenField(callback);
     return () => {
-      game.unlisten(callback);
+      game.unlistenField(callback);
     };
   }, []);
 
@@ -28,14 +28,19 @@ function App() {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <div className={styles["game-container"]}>
         {isCleared && (
           <div className={styles["cleared-container"]}>
-            <p>
+            <p className={styles["well-done"]}>
               <strong>Well done.</strong>
             </p>
-            <button onClick={() => game.reset()}>もう一度あそぶ</button>
+            <button
+              onClick={() => game.reset()}
+              className={styles["button-restart"]}
+            >
+              もう一度あそぶ
+            </button>
           </div>
         )}
         <div className={styles["grid-container"]}>
