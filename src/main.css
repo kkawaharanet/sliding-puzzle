@@ -12,3 +12,7 @@ body {
   background-color: #000000;
   overflow: hidden;
 }
+
+#root {
+  display: inline-block;
+}
