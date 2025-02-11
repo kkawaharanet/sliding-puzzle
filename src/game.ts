@@ -27,7 +27,7 @@ export class Game implements IGame {
   }
 
   reset(): void {
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 100; i++) {
       const r = Math.floor(Math.random() * this._field.length);
       this.slide(r % Game.SIZE, Math.floor(r / Game.SIZE));
     }
@@ -35,7 +35,10 @@ export class Game implements IGame {
 
   private getValue(x: number, y: number): number {
     const i = Game.SIZE * y + x;
-    if (x < 0 || x > Game.SIZE || y < 0 || y > Game.SIZE) {
+    if (x < 0 || x >= Game.SIZE || y < 0 || y >= Game.SIZE) {
+      return -1;
+    }
+    if (i < 0 || i >= this._field.length) {
       return -1;
     }
     return this._field[i];
