@@ -1,0 +1,46 @@
+.game-container {
+  position: relative;
+  background-color: #fff;
+}
+
+.cleared-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: min(100vw, 100vh);
+  height: min(100vw, 100vh);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-size: min(10vw, 10vh);
+  color: #000;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+
+.well-done {
+  font-size: min(4vw, 4vw);
+}
+
+.button-restart {
+  font-size: min(4vw, 4vw);
+}
