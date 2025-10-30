@@ -3,6 +3,6 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/software/sliding-puzzle",
+  base: "/development/sliding-puzzle",
   plugins: [react()],
 });
